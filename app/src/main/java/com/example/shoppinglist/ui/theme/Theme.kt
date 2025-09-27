@@ -11,37 +11,37 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = RedDark,
-    onPrimary = RedOn,
-    primaryContainer = RedDarkPrimaryContainer,
-    onPrimaryContainer = RedDarkOnPrimaryContainer,
-    secondary = RedSecondary,
-    secondaryContainer = RedDarkSecondaryContainer,
-    onSecondaryContainer = RedDarkOnSecondaryContainer,
-    background = RedDarkBackground,
-    onBackground = RedDarkOnBackground,
-    surface = RedSurfaceDark,
-    onSurface = RedOnSurfaceDark
+    primary = BlueDark,
+    onPrimary = BlueOn,
+    primaryContainer = BlueDarkPrimaryContainer,
+    onPrimaryContainer = BlueDarkOnPrimaryContainer,
+    secondary = BlueSecondary,
+    secondaryContainer = BlueDarkSecondaryContainer,
+    onSecondaryContainer = BlueDarkOnSecondaryContainer,
+    background = BlueDarkBackground,
+    onBackground = BlueDarkOnBackground,
+    surface = BlueDarkSurface,
+    onSurface = BlueDarkOnSurface
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = RedLight,
-    onPrimary = RedOn,
-    primaryContainer = RedPrimaryContainer,
-    onPrimaryContainer = RedOnPrimaryContainer,
-    secondary = RedSecondary,
-    secondaryContainer = RedSecondaryContainer,
-    onSecondaryContainer = RedOnSecondaryContainer,
-    background = RedBackground,
-    onBackground = RedOnBackground,
-    surface = RedSurface,
-    onSurface = RedOnSurface
+    primary = BlueLight,
+    onPrimary = BlueOn,
+    primaryContainer = BluePrimaryContainer,
+    onPrimaryContainer = BlueOnPrimaryContainer,
+    secondary = BlueSecondary,
+    secondaryContainer = BlueSecondaryContainer,
+    onSecondaryContainer = BlueOnSecondaryContainer,
+    background = BlueBackground,
+    onBackground = BlueOnBackground,
+    surface = BlueSurface,
+    onSurface = BlueOnSurface
 )
 
 @Composable
 fun ShoppingListTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
