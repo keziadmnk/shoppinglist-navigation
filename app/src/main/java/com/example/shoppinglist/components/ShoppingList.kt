@@ -10,7 +10,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -37,8 +39,9 @@ import com.example.shoppinglist.ui.theme.ShoppingListTheme
 import kotlinx.coroutines.delay
 
 @Composable
-fun ShoppingList(items: List<String>) {
+fun ShoppingList(items: List<String>,  listState: LazyListState = rememberLazyListState()) {
     LazyColumn(
+        state = listState,
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 16.dp),
@@ -55,7 +58,6 @@ fun ShoppingList(items: List<String>) {
 fun AnimatedShoppingListItem(item: String) {
     var isVisible by remember { mutableStateOf(false) }
 
-    // Trigger animasi saat item pertama kali muncul
     LaunchedEffect(item) {
         delay(100)
         isVisible = true
@@ -75,7 +77,6 @@ fun ShoppingListItem(item: String) {
     var isSelected by remember { mutableStateOf(false) }
     var isPressed by remember { mutableStateOf(false) }
 
-    // Animasi warna
     val backgroundColor by animateColorAsState(
         targetValue = if (isSelected) {
             MaterialTheme.colorScheme.primaryContainer
@@ -98,7 +99,6 @@ fun ShoppingListItem(item: String) {
         label = "contentColor"
     )
 
-    // Animasi elevasi
     val elevation by animateDpAsState(
         targetValue = if (isPressed) 12.dp else if (isSelected) 8.dp else 4.dp,
         animationSpec = tween(200),
@@ -155,7 +155,6 @@ fun ShoppingListItem(item: String) {
                 )
             }
 
-            // Nama item
             Text(
                 text = item,
                 style = MaterialTheme.typography.titleMedium,
@@ -163,7 +162,6 @@ fun ShoppingListItem(item: String) {
                 modifier = Modifier.weight(1f)
             )
 
-            // Icon status
             Surface(
                 modifier = Modifier.size(32.dp),
                 shape = RoundedCornerShape(8.dp),
